@@ -1,0 +1,245 @@
+<div
+  class="relative min-h-screen bg-linear-to-br from-gray-900 via-slate-900 to-black overflow-hidden text-white montserrat"
+>
+  <!-- Background Effects -->
+  <div class="absolute inset-0">
+    <img
+      src="https://www.nextmsc.com/nextmsc-stg/images/ai-cctv-market_1754889067.jpeg"
+      alt="Background"
+      class="w-full h-full object-cover opacity-70 mix-blend-overlay"
+    />
+    <div
+      class="absolute inset-0"
+      style="
+        background-image: linear-gradient(
+            rgba(236, 72, 153, 0.08) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(236, 72, 153, 0.08) 1px, transparent 1px);
+        background-size: 50px 50px;
+      "
+    ></div>
+  </div>
+
+  <!-- Glowing Orbs -->
+  <div
+    class="absolute top-1/4 left-1/4 w-96 h-96 bg-fuchsia-500 rounded-full blur-3xl opacity-10 animate-pulse"
+  ></div>
+  <div
+    class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-10 animate-pulse delay-1000"
+  ></div>
+
+  <!-- Header with Logo -->
+  <div class="relative z-10 pt-8 text-center">
+    <div class="inline-flex flex-col items-center gap-3">
+      <img
+        src="/logo.png"
+        alt="Startup Park Logo"
+        class="w-52 md:w-48 animate-glowPulse"
+      />
+      <p class="text-gray-400 text-sm tracking-widest">
+        DETECT • DECIPHER • DELIVER
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div
+    class="relative z-10 flex items-center justify-center min-h-[calc(100vh-200px)] px-4"
+  >
+    <div
+      class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+    >
+      <!-- LEFT: Face Scan with Flip -->
+      <div class="flex flex-col items-center space-y-6">
+        <div class="relative w-96 h-96 perspective-distant">
+          <div
+            class="relative w-full h-full transition-transform duration-700 transform-3d"
+            [ngClass]="{ 'transform-[rotateY(180deg)]': showWelcome }"
+          >
+            <!-- FRONT: Recognized Image -->
+            <div
+              class="absolute inset-0 rounded-3xl overflow-hidden border-4 border-cyan-500/30 shadow-2xl shadow-cyan-500/20 backface-hidden"
+            >
+              <img
+                [src]="vip.recognizedImage"
+                alt="Recognized Face"
+                class="w-full h-full object-cover"
+              />
+
+              <!-- Scanning Line -->
+              <div
+                *ngIf="!scanComplete"
+                class="absolute left-0 right-0 h-1 bg-linear-to-r from-transparent via-cyan-400 to-transparent shadow-lg shadow-cyan-400"
+                [style.top.%]="scanProgress"
+              ></div>
+
+              <!-- Corner Markers -->
+              <div
+                class="absolute top-4 left-4 w-8 h-8 border-t-4 border-l-4 border-cyan-400"
+              ></div>
+              <div
+                class="absolute top-4 right-4 w-8 h-8 border-t-4 border-r-4 border-cyan-400"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 w-8 h-8 border-b-4 border-l-4 border-cyan-400"
+              ></div>
+              <div
+                class="absolute bottom-4 right-4 w-8 h-8 border-b-4 border-r-4 border-cyan-400"
+              ></div>
+            </div>
+
+            <!-- BACK: Original Image -->
+            <div
+              class="absolute inset-0 rounded-3xl overflow-hidden border-4 border-cyan-500/40 shadow-2xl shadow-cyan-500/30 bg-black transform-[rotateY(180deg)] backface-hidden"
+            >
+              <img
+                [src]="vip.originalImage"
+                alt="Original VIP"
+                class="w-full h-full object-cover scale-110"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Scan Progress -->
+        <div class="mt-6 space-y-3">
+          <div class="flex items-center justify-between text-sm">
+            <div class="flex items-center gap-2 text-cyan-400">
+              <i
+                class="lucide lucide-scan w-5 h-5"
+                [ngClass]="{ 'animate-spin': !showWelcome }"
+              ></i>
+              <span class="font-semibold">
+                {{
+                  scanComplete
+                    ? "Scan Complete"
+                    : "Facial Recognition Scanning..."
+                }}
+              </span>
+            </div>
+            <span class="text-white font-mono ms-1 mt-1"
+              >{{ scanProgress | number : "1.0-0" }}%</span
+            >
+          </div>
+          <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+            <div
+              class="h-full bg-linear-to-r from-cyan-500 to-cyan-300 transition-all duration-300 ease-out"
+              [style.width.%]="scanProgress"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Database Search (with floating welcome) -->
+      <div class="relative flex flex-col items-center space-y-6">
+        <!-- Floating Welcome Overlay -->
+        <div
+          *ngIf="showWelcome"
+          class="absolute  inset-0 h-auto flex items-center justify-center z-30 animate-fadeInUp"
+        >
+          <div
+            class="relative w-full bg-linear-to-br from-[#0f0f1a]/80 to-[#0a0a0f]/90 backdrop-blur-2xl border border-cyan-400/40 rounded-3xl p-8 shadow-[0_0_30px_rgba(168,85,247,0.3)] text-center transform hover:scale-105 transition-all duration-700"
+          >
+            <!-- Soft Glow -->
+            <div
+              class="absolute inset-0 rounded-3xl bg-linear-to-tr from-fuchsia-500/20 to-cyan-400/20 blur-2xl -z-10"
+            ></div>
+
+            <h2
+              class="text-3xl font-semibold mb-3 text-cyan-300 tracking-wide drop-shadow-md"
+            >
+              Welcome
+            </h2>
+
+            <h3
+              class="text-5xl font-extrabold bg-linear-to-r from-fuchsia-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent leading-tight drop-shadow-lg"
+            >
+              {{ vip.name }}
+            </h3>
+
+            <p
+              class="text-lg text-gray-300 mt-3 mb-5 font-medium tracking-wide"
+            >
+              {{ vip.profession }}
+            </p>
+
+            <div class="text-md text-gray-400 italic">
+              🌟 Honored to host you at <br />
+              <span
+                class="text-transparent bg-clip-text bg-linear-to-r from-cyan-300 to-fuchsia-400 font-semibold"
+                >Startup Park</span
+              >
+            </div>
+            <!-- Decorative Bottom Line -->
+            <div
+              class="mt-6 h-0.5 w-2/3 mx-auto bg-linear-to-r from-transparent via-fuchsia-400 to-transparent opacity-70"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Database Search Card (under the overlay) -->
+        <div
+          *ngIf="!showWelcome"
+          class="w-full max-w-md bg-linear-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm border border-fuchsia-500/30 rounded-3xl p-8 shadow-2xl shadow-fuchsia-500/20 relative overflow-hidden"
+        >
+          <div class="flex items-center gap-3 mb-6">
+            <i
+              class="lucide lucide-database w-7 h-7 text-fuchsia-400"
+              [ngClass]="{ 'animate-pulse': !searchComplete }"
+            ></i>
+            <h3 class="text-xl font-bold text-fuchsia-400">Database Search</h3>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-300">
+                {{
+                  searchComplete ? "Match Found" : "Searching VIP Database..."
+                }}
+              </span>
+              <span class="text-white font-mono"
+                >{{ searchProgress | number : "1.0-0" }}%</span
+              >
+            </div>
+            <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-linear-to-r from-fuchsia-500 to-pink-300 transition-all duration-300 ease-out"
+                [style.width.%]="searchProgress"
+              ></div>
+            </div>
+
+            <!-- Search Results -->
+            <div
+              *ngIf="searchComplete"
+              class="mt-6 pt-6 border-t border-gray-700 space-y-4"
+            >
+              <div class="flex items-center gap-2 text-green-400">
+                <i class="lucide lucide-check-circle w-5 h-5"></i>
+                <span class="font-semibold">Identity Verified</span>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-gray-400 text-sm">
+                  <i class="lucide lucide-user w-4 h-4"></i>
+                  <span>Match Confidence: 99.8%</span>
+                </div>
+                <div class="flex items-center gap-2 text-gray-400 text-sm">
+                  <i class="lucide lucide-database w-4 h-4"></i>
+                  <span>Database: VIP Registry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div
+    class="absolute bottom-6 left-0 right-0 text-center text-gray-500 text-xs tracking-wider"
+  >
+    POWERED BY ADVANCED FACIAL RECOGNITION TECHNOLOGY
+  </div>
+</div>

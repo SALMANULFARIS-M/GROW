@@ -1,0 +1,35 @@
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.5))
+            drop-shadow(0 0 16px rgba(6, 182, 212, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(236, 72, 153, 0.8))
+            drop-shadow(0 0 32px rgba(6, 182, 212, 0.7));
+  }
+}
+.animate-glowPulse {
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUpRight {
+  from {
+    opacity: 0;
+    transform: translate(50px, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUpRight 1s ease-out forwards;
+}
