@@ -33,3 +33,29 @@
 .animate-fadeInUp {
   animation: fadeInUpRight 1s ease-out forwards;
 }
+
+ @keyframes scan {
+    0% {
+      left: -5rem;
+    }
+    100% {
+      left: calc(100% + 5rem);
+    }
+  }
+
+  .animate-scan {
+    animation: scan 3s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.5));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.8));
+    }
+  }
+
+  .animate-glowPulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }

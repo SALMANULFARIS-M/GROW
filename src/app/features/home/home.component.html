@@ -1,5 +1,87 @@
+<div class="relative min-h-screen bg-linear-to-br from-gray-900 via-slate-900 to-black overflow-hidden text-white">
+  <!-- Background Effects -->
+  <div class="absolute inset-0">
+    <img
+      src="https://www.nextmsc.com/nextmsc-stg/images/ai-cctv-market_1754889067.jpeg"
+      alt="Background"
+      class="w-full h-full object-cover opacity-70 mix-blend-overlay"
+    />
+    <div
+      class="absolute inset-0"
+      style="
+        background-image: linear-gradient(
+            rgba(236, 72, 153, 0.08) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(236, 72, 153, 0.08) 1px, transparent 1px);
+        background-size: 50px 50px;
+      "
+    ></div>
+  </div>
+
+  <!-- Glowing Orbs -->
+  <div
+    class="absolute top-1/4 left-1/4 w-96 h-96 bg-fuchsia-500 rounded-full blur-3xl opacity-10 animate-pulse"
+  ></div>
+  <div
+    class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-10 animate-pulse delay-1000"
+  ></div>
+
+  <!-- Header with Two Logos -->
+  <div class="relative z-10 pt-8 flex items-center justify-between px-8">
+    <!-- Left / Center Logo Block -->
+    <div class="flex flex-col items-center text-center mx-auto">
+      <img src="/grow.png" alt="Ai" class="w-52 md:w-48 animate-glowPulse" />
+      <p class="text-gray-400 text-sm tracking-widest">
+        DETECT • DECIPHER • DELIVER
+      </p>
+    </div>
+
+    <!-- Right Side Logo -->
+    <div class="absolute right-8 top-10">
+      <img
+        src="logo.png"
+        alt="Startup Park Logo"
+        class="w-28 md:w-36 opacity-80 hover:opacity-100 transition"
+      />
+    </div>
+  </div>
+
+  <!-- Welcome Section -->
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-[60vh] px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <!-- Main Heading -->
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+        Welcome to the Future of
+        <span class="bg-linear-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">
+          AI Detection
+        </span>
+      </h1>
+
+      <!-- Subheading -->
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+        You are now entering the realm of advanced facial recognition technology,
+        where every identity is verified with precision and security.
+      </p>
+
+      <!-- Animated Scanning Effect -->
+      <div class="mt-16 relative h-1 w-full max-w-md mx-auto overflow-hidden">
+        <div class="absolute h-full w-20 bg-linear-to-r from-transparent via-fuchsia-500 to-transparent animate-scan rounded-full"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div
+    class="absolute bottom-6 left-0 right-0 text-center text-gray-500 text-xs tracking-wider"
+  >
+    POWERED BY ADVANCED FACIAL RECOGNITION TECHNOLOGY
+  </div>
+</div>
+
+
 <div
-  class="relative min-h-screen bg-linear-to-br from-gray-900 via-slate-900 to-black overflow-hidden text-white "
+  class="relative min-h-screen bg-linear-to-br from-gray-900 via-slate-900 to-black overflow-hidden text-white"
 >
   <!-- Background Effects -->
   <div class="absolute inset-0">
@@ -29,30 +111,25 @@
     class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-10 animate-pulse delay-1000"
   ></div>
 
-<!-- Header with Two Logos -->
-<div class="relative z-10 pt-8 flex items-center justify-between px-8">
-  <!-- Left / Center Logo Block -->
-  <div class="flex flex-col items-center text-center mx-auto">
-    <img
-      src="/grow.png"
-      alt="Ai"
-      class="w-52 md:w-48 animate-glowPulse"
-    />
-    <p class="text-gray-400 text-sm tracking-widest">
-      DETECT • DECIPHER • DELIVER
-    </p>
-  </div>
+  <!-- Header with Two Logos -->
+  <div class="relative z-10 pt-8 flex items-center justify-between px-8">
+    <!-- Left / Center Logo Block -->
+    <div class="flex flex-col items-center text-center mx-auto">
+      <img src="/grow.png" alt="Ai" class="w-52 md:w-48 animate-glowPulse" />
+      <p class="text-gray-400 text-sm tracking-widest">
+        DETECT • DECIPHER • DELIVER
+      </p>
+    </div>
 
-  <!-- Right Side Logo -->
-  <div class="absolute right-8 top-10">
-    <img
-      src="logo.png"
-      alt="Startup Park Logo"
-      class="w-28 md:w-36 opacity-80 hover:opacity-100 transition"
-    />
+    <!-- Right Side Logo -->
+    <div class="absolute right-8 top-10">
+      <img
+        src="logo.png"
+        alt="Startup Park Logo"
+        class="w-28 md:w-36 opacity-80 hover:opacity-100 transition"
+      />
+    </div>
   </div>
-</div>
-
 
   <!-- Main Content -->
   <div
@@ -147,7 +224,7 @@
         <!-- Floating Welcome Overlay -->
         <div
           *ngIf="showWelcome"
-          class="absolute  inset-0 h-auto flex items-center justify-center z-30 animate-fadeInUp"
+          class="absolute inset-0 h-auto flex items-center justify-center z-30 animate-fadeInUp"
         >
           <div
             class="relative w-full bg-linear-to-br from-[#0f0f1a]/80 to-[#0a0a0f]/90 backdrop-blur-2xl border border-cyan-400/40 rounded-3xl p-8 shadow-[0_0_30px_rgba(168,85,247,0.3)] text-center transform hover:scale-105 transition-all duration-700"
